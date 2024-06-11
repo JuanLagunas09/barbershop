@@ -1,0 +1,15 @@
+---
+const { label, link } = Astro.props;
+---
+
+<li>
+  <a
+    href={link}
+    class="block py-2 px-3 rounded
+    md:border-0 md:p-0
+    text-white hover:bg-gray-700
+    md:hover:bg-transparent"
+  >
+    {label}
+  </a>
+</li>
