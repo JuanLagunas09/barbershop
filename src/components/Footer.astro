@@ -3,9 +3,11 @@ import LogoFooter from "@/components/footer/LogoFooter.astro";
 import FormMobile from "@/components/footer/FormMobile.astro";
 import CreditsDev from "@/components/footer/CreditsDev.astro";
 import FormContact from "@/components/footer/FormContact.astro";
+import LinkFooter from "@/components/footer/LinkFooter.astro";
+import GoTo from "@/components/footer/GoTo.astro";
 ---
 
-<footer class="py-7 relative">
+<footer class="py-7 relative shadow-top">
   <div class="max-w-screen-xl mx-auto mt-7">
     <div class="px-4 grid grid-cols-8 gap-2">
       <div
@@ -16,30 +18,7 @@ import FormContact from "@/components/footer/FormContact.astro";
       <div
         class="col-span-8 md:col-span-5 lg:col-span-3 grid grid-cols-2 mb-3 md:mb-0"
       >
-        <div
-          class="flex justify-center mx-auto lg:mx-0 md:justify-start md:items-center"
-        >
-          <div class="md:w-full">
-            <div class="mb-3">
-              <h3 class="text-title-color font-bold text-xl md:text-2xl">
-                Ir a
-              </h3>
-            </div>
-            <div
-              class="flex flex-col gap-[3px] lg:border-r-[1px] lg:border-font-color md:mr-5"
-            >
-              <a href="#" class="text-font-color hover:text-button-color"
-                >Inicio</a
-              >
-              <a href="#" class="text-font-color hover:text-button-color"
-                >Galeria</a
-              >
-              <a href="#" class="text-font-color hover:text-button-color"
-                >Servicios</a
-              >
-            </div>
-          </div>
-        </div>
+        <GoTo />
         <div
           class="flex justify-center mx-auto lg:mx-0 md:justify-start md:items-center"
         >
@@ -52,21 +31,9 @@ import FormContact from "@/components/footer/FormContact.astro";
             <div
               class="flex flex-col gap-[3px] md:ml-5 lg:border-r-[1px] lg:border-font-color"
             >
-              <a
-                href="#"
-                target="_blank"
-                class="text-font-color hover:text-button-color">Correo</a
-              >
-              <a
-                href="#"
-                target="_blank"
-                class="text-font-color hover:text-button-color">Instagram</a
-              >
-              <a
-                href="#"
-                target="_blank"
-                class="text-font-color hover:text-button-color">Facebook</a
-              >
+              <LinkFooter label="Correo" link="#" />
+              <LinkFooter label="Instagram" link="#" />
+              <LinkFooter label="Facebook" link="#" />
             </div>
           </div>
         </div>
