@@ -1,0 +1,214 @@
+---
+import IconClose from "@/icons/IconClose.astro";
+import FormContact from "./FormContact.astro";
+---
+
+<div
+  id="container-form-mobile"
+  class="bg-primary-color rounded-t-2xl absolute lg:hidden col-span-8 transition-all duration-500 ease-in-out"
+>
+  <div class="pt-5 pb-7 px-7">
+    <div class="w-full flex justify-end mb-5">
+      <button
+        id="close-form-mobile"
+        class="h-8 w-8 text-font-color hover:text-red-500 transition-all duration-500"
+      >
+        <IconClose />
+      </button>
+    </div>
+    <div id="main-form-mobile" class="md:w-7/12 md:mx-auto lg:w-full lg:mx-0">
+      <div class="text-center lg:text-left">
+        <h3
+          class="text-title-color font-bold text-xl md:text-2xl hidden lg:block"
+        >
+          Contacto
+        </h3>
+        <h3
+          class="text-button-color font-bold text-xl md:text-2xl lg:hidden uppercase"
+        >
+          ¿Cómo podemos ayudarte?
+        </h3>
+      </div>
+      <form
+        action=""
+        id="form-contact-mobile"
+        name="form-contact-mobile"
+        class="transition-all duration-500 ease-in-out my-7 lg:my-0"
+      >
+        <div class="mt-4">
+          <label
+            for="name"
+            class="block mb-1 text-sm font-medium text-font-color"
+            >Nombre:</label
+          >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Ej. Juan Pérez"
+            class="bg-transparent border border-font-color text-font-color rounded-md block w-full py-2 px-3 focus:outline-none focus:ring-0"
+          />
+        </div>
+
+        <div class="mt-4">
+          <label
+            for="phone"
+            class="block mb-1 text-sm font-medium text-font-color"
+            >Teléfono:</label
+          >
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            placeholder="Ej. 1234567890"
+            class="bg-transparent border border-font-color text-font-color rounded-md block w-full py-2 px-3 focus:outline-none focus:ring-0"
+          />
+        </div>
+
+        <div class="mt-4">
+          <label
+            for="services"
+            class="block mb-1 text-sm font-medium text-font-color"
+            >Motivo:</label
+          >
+          <select
+            id="services"
+            name="services"
+            class="bg-transparent border border-font-color text-font-color rounded-md block w-full py-2 px-3 focus:outline-none focus:ring-0"
+          >
+            <option value="corte hombre">Corte hombre</option>
+            <option value="corte mujer">Corte mujer</option>
+            <option value="peinado mujer">Peinado mujer</option>
+          </select>
+        </div>
+
+        <div class="w-full flex justify-center mt-7 lg:mt-5">
+          <button
+            type="submit"
+            id="send-form-mobile"
+            class="bg-transparent hover:border-button-color text-font-color hover:text-button-color font-semibold py-2 px-20 border border-font-color hover:border-transparent rounded"
+          >
+            <span id="text-send-mobile"> Enviar </span>
+            <span id="loading-spin-mobile"></span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  #container-form-mobile {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  @keyframes spinLoading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  #loading-spin-mobile {
+    display: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spinLoading 1s linear infinite;
+    margin-left: 10px;
+  }
+</style>
+
+<script type="module">
+  import sweetalert2 from "https://cdn.jsdelivr.net/npm/sweetalert2@11.11.1/+esm";
+
+  (function () {
+    emailjs.init({
+      publicKey: "p204l74nrbPwE2i5O",
+    });
+  })();
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("form-contact-mobile");
+    const submitBtn = document.getElementById("send-form-mobile");
+    const loadingSpin = document.getElementById("loading-spin-mobile");
+    const textSend = document.getElementById("text-send-mobile");
+    const btnContact = document.getElementById("btnContact");
+    const containerFormMobile = document.getElementById(
+      "container-form-mobile"
+    );
+    const btnCloseFormMobile = document.getElementById("close-form-mobile");
+
+    function closeFormMobile() {
+      if (containerFormMobile) containerFormMobile.style.maxHeight = "0px";
+    }
+
+    btnContact?.addEventListener("click", () => {
+      if (containerFormMobile) containerFormMobile.style.maxHeight = "1000px";
+    });
+
+    btnCloseFormMobile?.addEventListener("click", closeFormMobile);
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      loadingSpin.style.display = "inline-block";
+      textSend.style.display = "none";
+
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const services = document.getElementById("services").value;
+
+      try {
+        const response = await emailjs.send(
+          "service_eerjzke",
+          "template_uin3ve1",
+          {
+            name,
+            phone,
+            services,
+          }
+        );
+
+        if (response.status === 200) {
+          sweetalert2
+            .fire({
+              title: "¡Gracias!",
+              text: "Pronto nos pondremos en contacto contigo.",
+              icon: "success",
+              confirmButtonText: "Aceptar",
+            })
+            .then(() => {
+              form.reset();
+              submitBtn.disabled = false;
+              loadingSpin.style.display = "none";
+              textSend.style.display = "inline-block";
+            });
+        }
+      } catch (error) {
+        sweetalert2
+          .fire({
+            title: "¡Ups!",
+            text: "Ocurrió un error al enviar tu mensaje.",
+            icon: "error",
+            confirmButtonText: "Aceptar",
+          })
+          .then(() => {
+            submitBtn.disabled = false;
+            loadingSpin.style.display = "none";
+            textSend.style.display = "inline-block";
+          });
+      }
+    });
+  });
+</script>

@@ -4,7 +4,11 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				'accent-1': '#333',
+				'primary-color': '#111114',
+				'secondary-color': '#ffeecc',
+				'font-color': '#dadada',
+				'title-color': '#e4e1e6',
+				'button-color': '#e6bb61'
 			},
 		},
 	},

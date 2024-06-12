@@ -1,19 +1,25 @@
 ---
 const { pageTitle } = Astro.props;
-import Header from '@/components/Header.astro';
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
 ---
 
 <html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-        <meta name="description" content="Barber L" />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-        <Header />
-		<slot />
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Barber L" />
+    <title>{pageTitle}</title>
+  </head>
+  <body class="bg-primary-color">
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+  ></script>
 </html>
