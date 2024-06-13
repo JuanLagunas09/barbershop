@@ -3,7 +3,7 @@ const navMenu = document.getElementById("navbar-menu");
 const headerNav = document.getElementById("header-nav");
 
 function closeMenu() {
-  transparentBar();
+  changeBar();
   btnNavbarToggle?.setAttribute("aria-expanded", "false");
   navMenu?.classList.add("hidden");
 }

@@ -1,0 +1,105 @@
+---
+import TitleLabel from "./TitleLabel.astro";
+import RectCorner from "./RectCorner.astro";
+---
+
+<section class="max-w-screen-xl mx-auto px-5 py-24">
+  <RectCorner>
+    <div class="w-full p-3">
+      <RectCorner>
+        <div class="text-title-color py-12">
+          <TitleLabel title="¡Agenda ahora!" />
+          <form
+            class="w-full min-h-[100px] gap-y-7 md:gap-y-10 md:gap-x-6 grid grid-cols-2 px-5 sm:px-7 lg:px-16 xl:px-24 2xl:px-36 mt-10
+          transition-all duration-500 ease-in-out"
+          >
+            <div class="col-span-2 md:col-span-1">
+              <label for="name" class="text-button-color">Nombre</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                class="w-full text-base border-[1px] border-gray-600 border-opacity-50 py-4 px-7 outline-none rounded-sm bg-primary-color bg-opacity-20 mt-3 text-font-color"
+              />
+            </div>
+            <div class="col-span-2 md:col-span-1">
+              <label for="email" class="text-button-color">Correo</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                class="w-full text-base border-[1px] border-gray-600 border-opacity-50 py-4 px-7 outline-none rounded-sm bg-primary-color bg-opacity-20 mt-3 text-font-color"
+              />
+            </div>
+            <div class="col-span-2 md:col-span-1">
+              <label for="phone" class="text-button-color">Teléfono</label>
+              <input
+                id="phone"
+                name="phone"
+                type="text"
+                class="w-full text-base border-[1px] border-gray-600 border-opacity-50 py-4 px-7 outline-none rounded-sm bg-primary-color bg-opacity-20 mt-3 text-font-color"
+              />
+            </div>
+
+            <div class="col-span-2 md:col-span-1">
+              <label for="address" class="text-button-color">
+                ¿De dónde eres?
+              </label>
+              <input
+                id="address"
+                name="address"
+                type="text"
+                class="w-full text-base border-[1px] border-gray-600 border-opacity-50 py-4 px-7 outline-none rounded-sm bg-primary-color bg-opacity-20 mt-3 text-font-color"
+              />
+            </div>
+
+            <div class="col-span-2 md:col-span-1">
+              <label for="services" class="text-button-color"> Servicio </label>
+              <select
+                id="services"
+                name="services"
+                class="w-full text-base border-[1px] border-gray-600 border-opacity-50 py-4 px-7 outline-none rounded-sm bg-primary-color bg-opacity-20 mt-3 text-font-color"
+              >
+                <option value="Corte mujer"> Corte mujer </option>
+                <option value="Corte hombre"> Corte hombre </option>
+              </select>
+            </div>
+
+            <div class="col-span-2 md:col-span-1">
+              <label for="date" class="text-button-color"> Fecha </label>
+              <input
+                id="date"
+                name="date"
+                type="date"
+                class="w-full text-base border-[1px] border-gray-600 border-opacity-50 py-4 px-7 outline-none rounded-sm bg-primary-color bg-opacity-20 mt-3 text-font-color"
+              />
+            </div>
+
+          </form>
+        </div>
+      </RectCorner>
+    </div>
+  </RectCorner>
+</section>
+
+<style>
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-text-fill-color: #dadada !important;
+    background-color: rgba(17, 17, 20, 0.94) !important;
+    box-shadow: 0 0 0px 1000px rgba(17, 17, 20, 0.94) inset;
+    caret-color: #dadada;
+  }
+
+  input:-moz-autofill,
+  input:-moz-autofill:hover,
+  input:-moz-autofill:focus,
+  input:-moz-autofill:active {
+    -moz-text-fill-color: #dadada !important;
+    background-color: rgba(17, 17, 20, 0.94) !important;
+    box-shadow: 0 0 0px 1000px rgba(17, 17, 20, 0.94) inset;
+    caret-color: #dadada;
+  }
+</style>

@@ -1,0 +1,11 @@
+---
+const { imageUri } = Astro.props;
+---
+
+<div class="w-full h-full px-0 md:px-1 bg-primary-color opacity-25">
+  <div
+    style={`background-image: url('${imageUri}')`}
+    class="w-full h-full bg-cover bg-no-repeat"
+  >
+  </div>
+</div>

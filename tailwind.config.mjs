@@ -5,7 +5,7 @@ export default {
 		extend: {
 			colors: {
 				'primary-color': '#111114',
-				'secondary-color': '#ffeecc',
+				'secondary-color': '#232323',
 				'font-color': '#dadada',
 				'title-color': '#e4e1e6',
 				'button-color': '#e6bb61'
