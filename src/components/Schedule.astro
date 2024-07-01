@@ -1,0 +1,38 @@
+---
+import ItemSchedule from "./schedules/ItemSchedule.astro";
+---
+
+<section class="max-w-screen-xl mx-auto px-5 py-24 ">
+  <div class="w-full flex flex-wrap">
+    <div class="w-full md:w-1/2">
+      <div class="w-full">
+        <h1
+          class="text-white font-bold uppercase text-wrap text-2xl md:text-5xl flex flex-col tracking-[2px]"
+        >
+          <span>nuestros</span>
+          <span class="mt-1 ml-10">horarios</span>
+        </h1>
+      </div>
+      <div class="ml-10 text-white">
+        <div class="flex mt-16">
+          <span class="w-[200px]">Dia:</span>
+          <span>Horario</span>
+        </div>
+        <ItemSchedule day="Lunes" schedule="9:00 am - 6:00 pm" />
+        <ItemSchedule day="Martes" schedule="9:00 am - 6:00 pm" />
+        <ItemSchedule day="Miercoles" schedule="9:00 am - 6:00 pm" />
+        <ItemSchedule day="Jueves" schedule="9:00 am - 6:00 pm" />
+        <ItemSchedule day="Viernes" schedule="9:00 am - 6:00 pm" />
+        <ItemSchedule day="Sabado" schedule="9:00 am - 6:00 pm" />
+        <ItemSchedule day="Domingo" schedule="Cerrado" />
+      </div>
+    </div>
+    <div class="w-full md:w-1/2">
+        <img
+            src="/img/schedules_ref.jpg"
+            alt="barber"
+            class="w-full h-full object-cover rounded-md shadow-md shadow-gray-700"
+        />
+    </div>
+  </div>
+</section>
